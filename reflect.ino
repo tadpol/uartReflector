@@ -13,13 +13,20 @@ void loop() {
 
         c = Serial.read();
 
-        if (isupper(c)) {
-            c = tolower(c);
-        } else {
-            c = toupper(c);
+        if (isdigit(c)) {
+            int l = c - '0';
+            const uint8_t *r = (const uint8_t*)"0123456789";
+            Serial.write(r, l);
+
+        } else { 
+            if (isupper(c)) {
+                c = tolower(c);
+            } else {
+                c = toupper(c);
+            }
+            Serial.write(c);
+            digitalWrite(LED, LOW);
         }
-        Serial.write(c);
-        digitalWrite(LED, LOW);
     }
 }
 
