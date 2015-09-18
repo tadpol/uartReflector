@@ -25,8 +25,8 @@ void loop() {
                 c = toupper(c);
             }
             Serial.write(c);
-            digitalWrite(LED, LOW);
         }
+        digitalWrite(LED, LOW);
     }
 }
 
